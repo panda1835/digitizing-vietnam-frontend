@@ -1,58 +1,76 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center max-width">
-      {/* Header */}
-      <section className="flex-col text-center mb-20 mx-5">
-        <h1>Digitizing Vietnam</h1>
-        <p className="text-gray-500">
-          A digital hub to study pre-modern and modern Vietnam{" "}
-        </p>
-      </section>
+      <div className="flex-col mb-20 px-5 w-full">
+        {/* Header */}
+        <section className="flex-col text-center mb-10">
+          <h1>Digitizing Vietnam</h1>
+          <p className="text-gray-500">{t("home-welcome-subtitle")}</p>
+        </section>
 
-      <section className="flex flex-row w-full justify-around items-center mb-10">
-        <div>
-          <h2>About Digitizing Vietnam</h2>
-          <p className="w-80 mb-5">
-            Digitizing Vietnam marks a digital leap forward in Vietnam Studies
-            with the Columbia-Fulbright collaboration.
-          </p>
-          <Link to="/about-us" className="button">
-            Learn more
-          </Link>
-        </div>
+        <section className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10">
+          <div className="md:w-96">
+            <img
+              className="my-5"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+1.png"
+              alt="About Digitizing Vietnam"
+            ></img>
+          </div>
+          <div className="md:w-96 flex flex-col items-center md:items-start">
+            <Link to="/about-us" className="">
+              <h2>{t("home-about-digitizing-vietnam")}</h2>
+            </Link>
+            <p className="mb-5">{t("home-about-digitizing-vietnam-content")}</p>
+            <Link to="/about-us" className="button">
+              {t("btn-learn-more")}
+            </Link>
+          </div>
+        </section>
 
-        <div>
-          <img
-            className="w-96"
-            src="https://www.lrsoc.com/web/wp-content/uploads/2021/01/Placeholder-shop.jpg"
-            alt="About Digitizing Vietnam"
-          ></img>
-        </div>
-      </section>
+        <section className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10">
+          <div className="md:w-96 order-1 md:order-2">
+            <img
+              className="my-5"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+2.jpg"
+              alt="Our Collections"
+            ></img>
+          </div>
+          <div className="md:w-96 flex flex-col items-center md:items-start order-2 md:order-1">
+            <Link to="/our-collections" className="">
+              <h2>{t("home-our-collections")}</h2>
+            </Link>
+            <p className="mb-5">{t("home-our-collections-content")}</p>
+            <Link to="/our-collections" className="button">
+              {t("btn-learn-more")}
+            </Link>
+          </div>
+        </section>
 
-      <section className="flex flex-row w-full justify-around items-center mb-10">
-        <div>
-          <img
-            className="w-96"
-            src="https://www.lrsoc.com/web/wp-content/uploads/2021/01/Placeholder-shop.jpg"
-            alt="Our Collections"
-          ></img>
-        </div>
-
-        <div>
-          <h2>Our Collections</h2>
-          <p className="w-80 mb-5">
-            Explore our eclectic collections, which range from pre-modern
-            Hán-Nôm texts to the first Vietnamese women&apos;s magazine.
-          </p>
-          <Link to="/our-collections" className="button">
-            Learn more
-          </Link>
-        </div>
-      </section>
+        <section className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10">
+          <div className="md:w-96">
+            <img
+              className="my-5"
+              src="https://digitizing-vietnam.s3.ap-southeast-1.amazonaws.com/assets/Home+Page+3.png"
+              alt="Our Blog"
+            ></img>
+          </div>
+          <div className="md:w-96 flex flex-col items-center md:items-start">
+            <Link to="/blogs" className="">
+              <h2>{t("home-our-blog")}</h2>
+            </Link>
+            <p className="mb-5">{t("home-our-blog-content")}</p>
+            <Link to="/blogs" className="button">
+              {t("btn-learn-more")}
+            </Link>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
